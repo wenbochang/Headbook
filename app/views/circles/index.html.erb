@@ -1,13 +1,14 @@
 <h1> Your Circles </h1>
 
-<h2> Friends </h2>
-<ul> 
-  <% current_user.associates %>
-</ul>
+<% current_user.circles.each do |circle| %>
 
-<h2> Strangers </h2>
-<ul> 
+  <h2> <%= circle.circle_name.capitalize %> </h2>
 
-</ul>
+  <ul>
+    <% circle.memberships.each do |m| %>
+      <% user = User.find(m.user_id) %>
+      <li> <%= user.username.capitalize %> </li>
+    <% end %>
+  </ul>
 
-<%= current_user.circles %>
+<% end %>
