@@ -14,7 +14,10 @@
 //= require jquery_ujs
 //= require underscore
 //= require backbone
+//= require bootstrap
+//
 //= require friends_app
+//
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections

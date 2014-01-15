@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
+      session[:session_token] = @user.session_token
       redirect_to @user
     else
       flash.now[:errors] = @user.errors.full_messages
@@ -12,6 +13,5 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
   end
 end

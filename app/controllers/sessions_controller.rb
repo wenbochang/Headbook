@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
     user = User.find_by_credentials(params[:user])
 
     if user
-      self.current_user = user
+      session[:session_token] = user.reset_session_token!
       redirect_to user
     else
       flash.now[:errors] = "Wrong credentials"

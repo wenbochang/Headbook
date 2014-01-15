@@ -5,8 +5,12 @@ class User < ActiveRecord::Base
 
   after_initialize :ensure_session_token
 
+  has_many :circles
+  has_many :associates, :through => :circles, :source => :memberships
+
+
   def self.find_by_credentials(params)
-    u = User.find_by_name = params[:username]
+    u = User.find_by_username(params[:username])
 
     if u && u.is_password?(params[:password])
       return u
@@ -17,13 +21,11 @@ class User < ActiveRecord::Base
 
   def password=(password)
     @password = password
-    #self.password_digest = BCrypt::Password.create(password)
-    self.password_digest = "placeholder"
+    self.password_digest = BCrypt::Password.create(password)
   end
 
   def is_password?(password)
-    #BCrypt::Password.new(self.password_digest).is_password?(password)
-    true
+    BCrypt::Password.new(self.password_digest).is_password?(password)
   end
 
   def reset_session_token!
