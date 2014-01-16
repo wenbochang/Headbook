@@ -1,3 +1,13 @@
 TODO
 
-navbar lists, add a listener to highlight based on page?
+Back-end
+[] users should only be able to see other's show if not stranger
+
+
+Front-end 
+[] navbar lists, add a listener to highlight based on page?
+
+Backbone
+[] collection for posts, photos
+[] ajax to save posts/photos
+

@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  before_filter :check_permission, :on => :show
+
+
   def new
   end
 
@@ -13,7 +16,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    @shared_posts = current_user.shared_posts
-    @shared_photos = current_user.shared_photos
+    @user = User.find(params[:id])
+    @shared_posts = @user.shared_posts
+    @shared_photos = @user.shared_photos
+  end
+
+  def check_permission
+    redirect_to new_session_url unless current_user
   end
 end

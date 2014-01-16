@@ -1,6 +1,6 @@
 <h1> Your Photos </h1>
 
-<% current_user.photos.each do |photo| %>
+<% @user.photos.each do |photo| %>
   <ul>
     <li>
     <%= render "photo", :photo => photo %>

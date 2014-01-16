@@ -1,7 +1,15 @@
-<div class="thumbnail">
-  <div class="caption">
-    <%= photo.title %>
-  </div>
-
-  <img src=<%= photo.url %> >
+<div class="thumbnail with-caption"> 
+  <img src=<%= photo.url %> with="320" >
+  <%= photo.title %>
 </div>
+
+<style>
+.thumbnail.with-caption {
+  display: inline-block;
+  background: #f5f5f5;
+}
+.thumbnail.with-caption p {
+  margin: 0;
+  padding-top: 0.5em;
+}
+</style>
