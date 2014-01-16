@@ -4,4 +4,5 @@ class Membership < ActiveRecord::Base
   validates :circle_id, :user_id, :presence => true
 
   belongs_to :circle
+  belongs_to :user
 end

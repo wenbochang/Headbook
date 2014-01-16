@@ -3,5 +3,6 @@ class Circle < ActiveRecord::Base
 
   belongs_to :user
   has_many :memberships
-#  has_many :members, :through => :memberships
+  has_many :posts
+  has_many :photos
 end

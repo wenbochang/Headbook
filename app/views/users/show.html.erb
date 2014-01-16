@@ -1,3 +1,22 @@
 <h1>
   <%= "#{current_user.username}'s home page" %> 
+
+  <h2> Feed </h2>
+
+  <ul>
+    <% @shared_posts.each do |post| %>
+      <li>
+      <%= post.body %>
+      </li>
+    <% end %>
+  </ul>
+
+  <ul>
+    <% @shared_photos.each do |photo| %>
+      <li>
+      <%= render "photo", :photo => photo %>
+      </li>
+    <% end %>
+  </ul>
+
 </h1>

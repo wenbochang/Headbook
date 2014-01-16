@@ -17,3 +17,13 @@ Circle.create!(:circle_name => "strangers", :user_id => 1)
 #add user 2 to user 1's friends circle
 Membership.create!(:circle_id => 1, :user_id => 2)
 Membership.create!(:circle_id => 2, :user_id => 3)
+
+#posts
+Post.create!(:body => "post1 by u1, shared with c1", 
+             :circle_id => 1, :user_id => 1)
+
+#Photos
+Photo.create!(:title => "photo1 by u1, shared w/ c2", 
+              :url => "http://placekitten.com/200/300",
+              :circle_id => 2, :user_id => 1)
+

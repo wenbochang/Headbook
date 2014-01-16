@@ -9,15 +9,22 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="#">Friends App</a>
+    <a class="navbar-brand" href= <%="/users/#{current_user.id}/"%>>
+      Friends App</a>
   </div>
 
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse" id="#main_nav">
     <ul class="nav navbar-nav">
-      <li class="active"><a href= <%="/users/#{current_user.id}/circles"%>>
-        Circles</a></li>
-      <li><a href="#">Photos</a></li>
+      <li>
+        <a href= <%="/users/#{current_user.id}/circles"%>>Circles</a>
+      </li>
+      <li>
+        <a href= <%="/users/#{current_user.id}/posts"%>>Posts</a>
+      </li>
+      <li>
+        <a href= <%="/users/#{current_user.id}/photos"%>>Photos</a>
+      </li>
       <li><%= link_to("Logout", "/session", :method => "delete") %></li>
     </ul>
   </div><!-- /.navbar-collapse -->

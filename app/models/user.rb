@@ -6,8 +6,13 @@ class User < ActiveRecord::Base
   after_initialize :ensure_session_token
 
   has_many :circles
-  has_many :associates, :through => :circles, :source => :memberships
+  has_many :memberships
+  has_many :posts
+  has_many :photos
 
+  has_many :in_circles, :through => :memberships, :source => :circle
+  has_many :shared_posts, :through => :in_circles, :source => :posts
+  has_many :shared_photos, :through => :in_circles, :source => :photos
 
   def self.find_by_credentials(params)
     u = User.find_by_username(params[:username])

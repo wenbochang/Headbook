@@ -1,11 +1,12 @@
 FriendsApp::Application.routes.draw do
   resources :users do
-    resources :circles
+    resources :circles, :only => [:index, :create, :destroy]
+    resources :posts, :only => [:index, :create, :destroy]
+    resources :photos, :only => [:index, :create, :destroy]
   end
+
+  resources :memberships, :only => [:new, :create, :update, :destroy]
 
   resource :session, :only => [:new, :create, :destroy]
-
-  namespace :api do
-  end
 
 end

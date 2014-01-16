@@ -1,0 +1,7 @@
+<h1> Your Posts </h1>
+
+<% current_user.posts.each do |post| %>
+  <ul>
+    <%= post.body %>
+  </ul>
+<% end %>
