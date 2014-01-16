@@ -1,6 +1,7 @@
 FriendsApp.Routers.Router = Backbone.Router.extend({
   routes: {
-    "posts": "posts_index"
+    "posts": "posts_index",
+    "photos": "photos_index"
   },
 
   initialize: function(options){
@@ -10,7 +11,6 @@ FriendsApp.Routers.Router = Backbone.Router.extend({
 
   posts_index: function(){
     var router = this;
-
     FriendsApp.posts.fetch({
       success: function() {
         var view = new FriendsApp.Views.PostsIndex({
