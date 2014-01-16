@@ -4,4 +4,8 @@ FriendsApp::Application.routes.draw do
   end
 
   resource :session, :only => [:new, :create, :destroy]
+
+  namespace :api do
+  end
+
 end
