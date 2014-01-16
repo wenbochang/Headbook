@@ -2,7 +2,7 @@ FriendsApp.Views.PostsIndex = Backbone.View.extend({
   template: JST["posts/index"],
 
   render: function() {
-    var renderedContent = template({
+    var renderedContent = this.template({
       posts: this.collection
     });
     this.$el.html(renderedContent);

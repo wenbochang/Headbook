@@ -8,9 +8,14 @@
 </head>
 <body>
 
+<!-- load in user ID -->
+<script>
+  FriendsApp.user_id = <%= current_user ? current_user.id : 0 %>
+</script>
+
 <%= render "navbar" %>
 
-<div class="container">
+<div id="content" class="container">
   <%= yield %>
 </div>
 

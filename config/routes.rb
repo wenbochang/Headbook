@@ -9,4 +9,5 @@ FriendsApp::Application.routes.draw do
 
   resource :session, :only => [:new, :create, :destroy]
 
+  root :to => "root#root"
 end

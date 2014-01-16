@@ -9,12 +9,14 @@ FriendsApp.Routers.Router = Backbone.Router.extend({
   },
 
   posts_index: function(){
+    var router = this;
+
     FriendsApp.posts.fetch({
       success: function() {
-        var view = new FriendsApp.View.PostsIndex({
+        var view = new FriendsApp.Views.PostsIndex({
           collection: FriendsApp.posts
         });
-        _swapView(view);
+        router._swapView(view);
       }
     });
   },
