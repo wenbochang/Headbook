@@ -8,6 +8,11 @@ Front-end
 [] navbar lists, add a listener to highlight based on page?
 
 Backbone
-[] collection for posts, photos
+[] collection for posts
+[] collection for photos
 [] ajax to save posts/photos
+
+Bonus
+[] photo tagging
+[] figaro for saving IDs
 

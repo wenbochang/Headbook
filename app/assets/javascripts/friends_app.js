@@ -4,7 +4,10 @@ window.FriendsApp = {
   Views: {},
   Routers: {},
   initialize: function() {
-    console.log('Hello from Backbone!');
+    new FriendsApp.Routers.Router({
+      $rootEl: $("body")
+    });
+    Backbone.history.start();
   }
 };
 

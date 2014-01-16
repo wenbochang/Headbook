@@ -21,9 +21,11 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'ejs'
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', :require => 'bcrypt'
 
 gem 'binding_of_caller'
 gem 'better_errors'
+gem 'figaro'
