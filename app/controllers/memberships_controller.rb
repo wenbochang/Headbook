@@ -1,6 +1,6 @@
 class MembershipsController < ApplicationController
   def index
-    @members = Memberships.all
+    @members = Membership.joins(:user).select("*,users.username")
     render :json => @members
   end
 end
