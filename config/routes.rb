@@ -5,7 +5,7 @@ FriendsApp::Application.routes.draw do
     resources :photos, :only => [:index, :create, :destroy]
   end
 
-  resources :memberships, :only => [:new, :create, :update, :destroy]
+  resources :memberships, :only => [:new, :index, :create, :update, :destroy]
 
   resource :session, :only => [:new, :create, :destroy]
 

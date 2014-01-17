@@ -13,6 +13,9 @@ Front-end
 Backbone
 [x] backbone for posts
 [x] backbone for photos
+[] backbone for circles
+[] backbone for memberships
+[] backbone for session?
 
 Bonus
 [] photo tagging

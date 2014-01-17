@@ -1,0 +1,9 @@
+<ul>
+  <% circles.each( function(circle) { %>
+    <li>
+      <%= circle.escape("circle_name") %>
+      <ul class="circles-ul" data-id=<%= circle.id %>>
+      </ul>
+    </li>
+  <% }) %>
+</ul>
