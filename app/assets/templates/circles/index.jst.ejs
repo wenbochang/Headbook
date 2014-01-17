@@ -1,9 +1,9 @@
 <div class="row">
   <% circles.each( function(circle) { %>
-    <li>
-      <%= circle.escape("circle_name") %>
-      <ul class="circles-ul" data-id=<%= circle.id %>>
-      </ul>
-    </li>
+    <div class="col-xs-4">
+      <h2> <%= circle.escape("circle_name") %> </h2>
+      <div class="circle-members" data-id=<%= circle.id %>>
+      </div>
+    </div>
   <% }) %>
-<div>
+</div>

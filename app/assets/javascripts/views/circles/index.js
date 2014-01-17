@@ -26,19 +26,11 @@ FriendsApp.Views.CirclesIndex = Backbone.View.extend({
   renderMembers: function() {
     var view = this;
     this.circles.each( function(circle) {
-      var c = view.$(".circles-ul[data-id=" + circle.id + "]");
-      var members = new FriendsApp.Collections.Members();
-      members.fetch({
-        success: function() {
-          var circleMembers = members.filter( function(member) {
-            return member.escape("circle_id") == circle.id
-          });
-          var memberView = new FriendsApp.Views.MemberShow({
-            members: new FriendsApp.Collections.Members(circleMembers)
-          });
-          c.append(memberView.render().$el);
-        }
+      var c = view.$(".circle-members[data-id=" + circle.id + "]");
+      var memberView = new FriendsApp.Views.MemberShow({
+        members: circle.get("members")
       });
+      c.append(memberView.render().$el);
     });
   }
 });

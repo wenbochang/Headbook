@@ -5,4 +5,6 @@ class Circle < ActiveRecord::Base
   has_many :memberships
   has_many :posts
   has_many :photos
+
+  has_many :members, :through => :memberships, :source => :user
 end

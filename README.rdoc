@@ -13,9 +13,13 @@ Front-end
 Backbone
 [x] backbone for posts
 [x] backbone for photos
-[] backbone for circles
-[] backbone for members
+[x] backbone for circles
+[x] backbone for members
 [] backbone for session?
+
+Refactor
+[] include memberships in circles index
+[] use form's JSON instead of selecting from elements
 
 Bonus
 [] photo tagging
