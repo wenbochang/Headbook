@@ -1,17 +1,20 @@
 TODO
 
 Back-end
-[] users should only be able to see other's show if not stranger
-
+[] logged in as correct user to see show page
+[] add/delete circles
 
 Front-end 
+[x] change post form to allow for dropdown to select circle
 [] navbar lists, add a listener to highlight based on page?
+[] order all posted items by time
+[] drag associate from a circle to next
 
 Backbone
 [x] backbone for posts
-[] backbone for photos
+[x] backbone for photos
 
 Bonus
 [] photo tagging
 [] figaro for saving IDs
-
+[] errors

@@ -2,31 +2,35 @@ FriendsApp.Views.PostsIndex = Backbone.View.extend({
   template: JST["posts/index"],
 
   events: {
-    "click #new-post-btn": "newPost"
+    "click #new-post-btn": "submit"
   },
 
-  initialize: function() {
+  initialize: function(options) {
+    this.posts= options.posts;
+    this.circles = options.circles;
+
     var view = this;
-    var events = ["add", "change:title", "remove", "reset"];
+    var events = ["add", "remove"];
     _(events).each(function (event) {
-      view.listenTo(view.collection, event, view.render);
+      view.listenTo(view.posts, event, view.render);
     });
   },
 
   render: function() {
     var renderedContent = this.template({
-      posts: this.collection
+      posts: this.posts,
+      circles: this.circles
     });
     this.$el.html(renderedContent);
     return this;
   },
 
-  newPost: function(event) {
+  submit: function(event) {
     event.preventDefault();
     var user_id = FriendsApp.user_id;
     var body = $("#post-body").val();
     var circle_id = $("#post-circle-id").val();
-    this.collection.create({ user_id: user_id, 
+    this.posts.create({ user_id: user_id, 
       body: body, circle_id: circle_id });
   }
 

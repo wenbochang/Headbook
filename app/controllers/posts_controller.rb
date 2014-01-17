@@ -1,10 +1,7 @@
 class PostsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
-    respond_to do |format|
-      format.html
-      format.json { render :json => @user.posts }
-    end
+    render :json => @user.posts 
   end
 
   def create

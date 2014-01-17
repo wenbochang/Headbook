@@ -6,6 +6,9 @@ FriendsApp.Routers.Router = Backbone.Router.extend({
 
   initialize: function(options){
     FriendsApp.posts = new FriendsApp.Collections.Posts();
+    FriendsApp.photos = new FriendsApp.Collections.Photos();
+    FriendsApp.circles = new FriendsApp.Collections.Circles();
+    FriendsApp.circles.fetch();
     this.$rootEl = options.$rootEl;
   },
 
@@ -14,7 +17,20 @@ FriendsApp.Routers.Router = Backbone.Router.extend({
     FriendsApp.posts.fetch({
       success: function() {
         var view = new FriendsApp.Views.PostsIndex({
-          collection: FriendsApp.posts
+          posts: FriendsApp.posts,
+          circles: FriendsApp.circles
+        });
+        router._swapView(view);
+      }
+    });
+  },
+
+  photos_index: function(){
+    var router = this;
+    FriendsApp.photos.fetch({
+      success: function() {
+        var view = new FriendsApp.Views.PhotosIndex({
+          collection: FriendsApp.photos
         });
         router._swapView(view);
       }
