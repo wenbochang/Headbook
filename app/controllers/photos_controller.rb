@@ -5,6 +5,7 @@ class PhotosController < ApplicationController
   end
 
   def create
+    params[:photo][:file_data] = params[:file_data]
     @photo = Photo.new(params[:photo])
     if @photo.save
       head :ok

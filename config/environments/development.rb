@@ -41,7 +41,7 @@ FriendsApp::Application.configure do
       :bucket => "friends-app-dev",
       :access_key_id => "AKIAJFCW3632Y3MMLYNA",
       :secret_access_key => "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",
-      :s3_host_name => 's3-us-west-2.amazonaws.com'
+      :s3_host_name => 's3-us-west-1.amazonaws.com'
     }
   }
 end

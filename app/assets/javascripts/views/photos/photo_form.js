@@ -20,7 +20,7 @@ FriendsApp.Views.PhotoForm = Backbone.View.extend({
     
     var reader = new FileReader();
     reader.onload = function(event) {
-        that.model.set({ file: event.target.result });
+        that.model.set({ file_data: event.target.result });
     }
     reader.onerror = function(stuff) {
         console.log("error", stuff)
@@ -29,27 +29,11 @@ FriendsApp.Views.PhotoForm = Backbone.View.extend({
     reader.readAsDataURL(file);
   },
 
-//  submit: function (event) {
-//    event.preventDefault();
-//    
-//    var attrs = $(event.currentTarget).serializeJSON();
-//    this.model.set(attrs);
-//    PaperclipDemo.pirates.add(this.model, {
-//        success: function (attribute) {
-//            console.log("happy days!");
-//        },
-//    });
-//    this.model.save(null, {
-//        success: function () {
-//            window.location.assign("/pirates");
-//        },
-//    });
-//  },
-
   submit: function(event) {
     event.preventDefault();
     var attrs = $(event.currentTarget.form).serializeJSON();
     attrs.photo.user_id = FriendsApp.user_id;
-    this.collection.create( attrs.photo );
+    this.model.set(attrs);
+    this.collection.create( this.model );
   }
 });
