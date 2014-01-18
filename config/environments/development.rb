@@ -34,4 +34,14 @@ FriendsApp::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => "friends-app-dev",
+      :access_key_id => "AKIAJFCW3632Y3MMLYNA",
+      :secret_access_key => "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",
+      :s3_host_name => 's3-us-west-2.amazonaws.com'
+    }
+  }
 end

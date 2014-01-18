@@ -1,10 +1,6 @@
 FriendsApp.Views.PhotosIndex = Backbone.View.extend({
   template: JST["photos/index"],
 
-  events: {
-    "click #new-photo-btn": "submit"
-  },
-
   initialize: function() {
     var view = this;
     var events = ["add", "change:title", "remove", "reset"];
@@ -15,28 +11,20 @@ FriendsApp.Views.PhotosIndex = Backbone.View.extend({
 
   render: function() {
     var view = this;
-    var renderedContent = this.template();
-    this.$el.html(renderedContent);
+    var formView = new FriendsApp.Views.PhotoForm({
+      collection: view.collection,
+      model: new FriendsApp.Models.Photo()
+    });
+    this.$el.html(formView.render().$el);
 
     this.collection.each(function(photo) {
       var photoView = new FriendsApp.Views.PhotoShow({
         model: photo
       });
-      view.$("#photos-ul").append(photoView.render().$el);
+      view.$el.append(photoView.render().$el);
     });
 
     return this;
-  },
-
-  submit: function(event) {
-    event.preventDefault();
-    console.log("new photo")
-    var user_id = FriendsApp.user_id;
-    var title = $("#photo-title").val();
-    var url = $("#photo-url").val();
-    var circle_id = $("#photo-circle-id").val();
-    this.collection.create({ user_id: user_id, 
-      title: title, url: url, circle_id: circle_id });
   }
 
-})
+});

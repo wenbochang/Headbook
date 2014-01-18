@@ -18,7 +18,7 @@ Backbone
 [] backbone for session?
 
 Refactor
-[] include memberships in circles index
+[x] include memberships in circles index
 [] use form's JSON instead of selecting from elements
 
 Bonus

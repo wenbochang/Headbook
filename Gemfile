@@ -28,4 +28,5 @@ gem 'bcrypt-ruby', :require => 'bcrypt'
 
 gem 'binding_of_caller'
 gem 'better_errors'
-gem 'figaro'
+gem 'paperclip'
+gem 'aws-sdk'
