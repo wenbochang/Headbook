@@ -13,4 +13,9 @@ class PhotosController < ApplicationController
       render :json => @photo.errors
     end
   end
+
+  def show
+    @photo = Photo.find(params[:id])
+  end
+
 end
