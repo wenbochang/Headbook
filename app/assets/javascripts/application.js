@@ -16,6 +16,7 @@
 //= require underscore
 //= require backbone
 //= require bootstrap
+//= require dropzone
 //
 //= require friends_app
 //

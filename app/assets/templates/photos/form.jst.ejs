@@ -1,0 +1,37 @@
+<!-- Button trigger modal -->
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#photoFormModal">
+  Add New Photo
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="photoFormModal" tabindex="-1" role="dialog" 
+  aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" 
+          aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">New Photo</h4>
+      </div>
+      <div class="modal-body">
+        <form action="javascript:void(0);" enctype="multipart/form-data">
+          <label for="photo-title">Photo Title</label>
+          <input id="photo-title" name="photo[title]" type="text">
+
+          <label for="photo-url">Photo URL</label>
+          <input id="photo-url" name="photo[url]" type="text">
+
+          <label for="photo-circle-id">Photo Circle</label>
+          <input id="photo-circle-id" name="photo[circle_id]" type="text">
+
+          <input type="file" name="photo[file_data]">
+         
+          <input type="submit" class="btn btn-primary" 
+            id="new-photo-btn" value="Add Photo">
+        </form>
+      </div>
+   </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+

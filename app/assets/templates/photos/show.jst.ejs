@@ -1,4 +1,6 @@
-<div class="thumbnail with-caption"> 
-  <img src=<%= photo.escape("url") %> with="320" >
-  <%= photo.escape("title") %>
+<div row>
+  <div class="col-xs-2 thumbnail with-caption"> 
+    <img alt="Base64" src=<%= photo.escape("url") %> >
+    <%= photo.escape("title") %>
+  </div>
 </div>

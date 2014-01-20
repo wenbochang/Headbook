@@ -10,20 +10,30 @@ FriendsApp.Views.PhotosIndex = Backbone.View.extend({
   },
 
   render: function() {
+    $('.modal-backdrop').remove();
+
     var view = this;
-    var formView = new FriendsApp.Views.PhotoForm({
-      collection: view.collection,
-      model: new FriendsApp.Models.Photo()
-    });
-    this.$el.html(formView.render().$el);
 
-    this.collection.each(function(photo) {
-      var photoView = new FriendsApp.Views.PhotoShow({
-        model: photo
-      });
-      view.$el.append(photoView.render().$el);
-    });
+   //first fetch collection of photos
+    this.collection.fetch({
+      success: function() {
 
+        //render form modal (initially hidden)
+        var formView = new FriendsApp.Views.PhotoForm({
+          collection: view.collection,
+          model: new FriendsApp.Models.Photo()
+        });
+        view.$el.html(formView.render().$el);
+
+        //render each photo
+        view.collection.each(function(photo) {
+          var photoView = new FriendsApp.Views.PhotoShow({
+            model: photo
+          });
+          view.$el.append(photoView.render().$el);
+        });
+      }
+    });
     return this;
   }
 

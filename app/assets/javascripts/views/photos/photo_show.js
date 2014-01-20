@@ -1,8 +1,6 @@
 FriendsApp.Views.PhotoShow = Backbone.View.extend({
   template: JST["photos/show"],
 
-  tagName: "li",
-
   events: {
   },
 

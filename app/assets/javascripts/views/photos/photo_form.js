@@ -1,5 +1,5 @@
 FriendsApp.Views.PhotoForm = Backbone.View.extend({
-  template: JST["photos/photo_form"],
+  template: JST["photos/form"],
 
   events: {
     "click #new-photo-btn": "submit",
@@ -10,7 +10,6 @@ FriendsApp.Views.PhotoForm = Backbone.View.extend({
     var view = this;
     var renderedContent = this.template();
     this.$el.html(renderedContent);
-
     return this;
   },
 
@@ -20,7 +19,7 @@ FriendsApp.Views.PhotoForm = Backbone.View.extend({
     
     var reader = new FileReader();
     reader.onload = function(event) {
-        that.model.set({ file_data: event.target.result });
+      that.photoFile = event.target.result;
     }
     reader.onerror = function(stuff) {
         console.log("error", stuff)
@@ -30,9 +29,10 @@ FriendsApp.Views.PhotoForm = Backbone.View.extend({
   },
 
   submit: function(event) {
-    event.preventDefault();
+
     var attrs = $(event.currentTarget.form).serializeJSON();
     attrs.photo.user_id = FriendsApp.user_id;
+    attrs.photo.file = this.photoFile;
     this.model.set(attrs);
     this.collection.create( this.model );
   }
