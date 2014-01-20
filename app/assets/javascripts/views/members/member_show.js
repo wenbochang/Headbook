@@ -4,13 +4,9 @@ FriendsApp.Views.MemberShow = Backbone.View.extend({
   events: {
   },
 
-  initialize: function(options) {
-    this.members = options.members;
-  },
-
   render: function() {
     var renderedContent = this.template({
-      members: this.members
+      member: this.model
     });
     this.$el.html(renderedContent);
     return this;

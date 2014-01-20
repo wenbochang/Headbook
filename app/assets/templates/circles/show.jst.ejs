@@ -4,13 +4,18 @@
     <!-- Circle header -->
     <div class="panel-heading">
       <%= circle.escape("circle_name") %> 
+
+      <!-- [-] Hide btn -->
+      <button type="button" class="circle-minimize" >&ndash;</button>
+
+      <!-- [X] close btn -->
       <% if (circle.escape("removable") != "false") { %>
-        <button type="button" class="close" >&times;</button>
+        <button type="button" class="close circle-close" >&times;</button>
       <% } %>
     </div>
 
     <!-- Circle members -->
-    <div class="panel-body circle-members" data-id=<%= circle.id %> >
+    <div class="panel-body circle-members">
     </div>
   </div>
 </div>

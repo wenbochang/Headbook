@@ -5,9 +5,6 @@ class CirclesController < ApplicationController
     render :json => circles.to_json(:include => :members)
   end
 
-  def new
-  end
-
   def create
     @circle = Circle.new(params[:circle])
     if @circle.save
@@ -22,4 +19,12 @@ class CirclesController < ApplicationController
     head :ok
   end
 
+  def update
+    @circle = Circle.find(params[:id])
+    @circle.update_attributes(params[:circle])
+    head :ok
+  end
+
+  def new
+  end
 end

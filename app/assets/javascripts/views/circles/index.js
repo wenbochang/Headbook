@@ -8,7 +8,7 @@ FriendsApp.Views.CirclesIndex = Backbone.View.extend({
     this.circles = options.circles;
 
     var view = this;
-    var events = ["add", "remove"];
+    var events = ["add", "change:display", "remove"]; 
     _(events).each(function (event) {
       view.listenTo(view.circles, event, view.render);
     });
@@ -20,8 +20,8 @@ FriendsApp.Views.CirclesIndex = Backbone.View.extend({
       success: function() {
         view.$el.html(view.template());
         view.renderCircleForm();
+        view.renderCircleDropdown();
         view.renderCircles();
-        view.renderMembers();
       }
     });
     return this;
@@ -30,6 +30,11 @@ FriendsApp.Views.CirclesIndex = Backbone.View.extend({
   renderCircleForm: function() {
     var formView = new FriendsApp.Views.CircleForm();
     this.$el.append(formView.render().$el);
+  },
+
+  renderCircleDropdown: function() {
+    var dropDownIndexView = new FriendsApp.Views.CircleDropdownIndex();
+    this.$el.append(dropDownIndexView.render().$el);
   },
 
   renderCircles: function() {
@@ -43,15 +48,7 @@ FriendsApp.Views.CirclesIndex = Backbone.View.extend({
       view.$el.append(showView.render().$el);
     });
   },
- 
-  renderMembers: function() {
-    var view = this;
-    this.circles.each( function(circle) {
-      var circleContainer = view.$(".circle-members[data-id=" + circle.id + "]");
-      var memberView = new FriendsApp.Views.MemberShow({
-        members: circle.get("members")
-      });
-      circleContainer.append(memberView.render().$el);
-    });
-  }
+
+//reference for using data ID 
+//      var circleContainer = view.$(".circle-members[data-id=" + circle.id + "]");
 });
