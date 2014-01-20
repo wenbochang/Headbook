@@ -2,6 +2,7 @@ FriendsApp.Views.CircleShow = Backbone.View.extend({
   template: JST["circles/show"],
 
   events: {
+    "click .close": "destroy"
   },
 
   render: function() {
@@ -10,5 +11,9 @@ FriendsApp.Views.CircleShow = Backbone.View.extend({
     });
     this.$el.html(renderedContent);
     return this;
+  },
+
+  destroy: function() {
+    this.model.destroy()
   }
 });

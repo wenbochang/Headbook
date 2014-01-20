@@ -1,6 +1,16 @@
-<div class="col-xs-4">
-  <h2> <%= circle.escape("circle_name") %> </h2>
-  <div class="circle-members" data-id=<%= circle.id %>>
+<div class="col-xs-4 friend-circle" data-id=<%= circle.id %> >
+  <div class="panel panel-info">
+
+    <!-- Circle header -->
+    <div class="panel-heading">
+      <%= circle.escape("circle_name") %> 
+      <% if (circle.escape("removable") != "false") { %>
+        <button type="button" class="close" >&times;</button>
+      <% } %>
+    </div>
+
+    <!-- Circle members -->
+    <div class="panel-body circle-members" data-id=<%= circle.id %> >
+    </div>
   </div>
 </div>
-

@@ -22,9 +22,9 @@ class User < ActiveRecord::Base
   end
 
   def create_default_circles
-    Circle.create!(:circle_name => "friends", :user_id => self.id,
+    Circle.create!(:circle_name => "Friends", :user_id => self.id,
                    :removable => "false")
-    Circle.create!(:circle_name => "strangers", :user_id => self.id,
+    Circle.create!(:circle_name => "Strangers", :user_id => self.id,
                    :removable => "false")
     Circle.create!(:circle_name => "private", :user_id => self.id,
                    :removable => "false", :display => "false")

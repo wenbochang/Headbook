@@ -6,15 +6,20 @@ Questions
 [] default circle attributes
 [] do we need to swapView on nested?
 
-Back-end
-[] logged in as correct user to see show page
-[] add/delete circles
+Backend
+[] comments?
+[] photo tagging?
 
 Front-end 
 [x] change post form to allow for dropdown to select circle
+[] add/delete circles
+[] logged in as correct user to see show page
+[] display feed
 [] navbar lists, add a listener to highlight based on page?
 [] order all posted items by time
-[] drag associate from a circle to next
+[] drag member from a circle to next
+[] make landing page
+[] make actual circles
 
 Backbone
 [x] backbone for posts
@@ -24,8 +29,8 @@ Backbone
 [] backbone for session?
 
 Refactor
-[] include memberships in circles index
-[] use form's JSON instead of selecting from elements
+[x] include memberships in circles index
+[x] use form's JSON instead of selecting from elements
 
 Bonus
 [] photo tagging

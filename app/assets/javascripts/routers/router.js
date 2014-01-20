@@ -14,7 +14,6 @@ FriendsApp.Routers.Router = Backbone.Router.extend({
     FriendsApp.posts = new FriendsApp.Collections.Posts();
     FriendsApp.photos = new FriendsApp.Collections.Photos();
     FriendsApp.circles = new FriendsApp.Collections.Circles();
-    FriendsApp.circles.fetch();
   },
 
   circlesIndex: function() {

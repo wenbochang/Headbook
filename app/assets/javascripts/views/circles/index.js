@@ -19,18 +19,29 @@ FriendsApp.Views.CirclesIndex = Backbone.View.extend({
     this.circles.fetch({
       success: function() {
         view.$el.html(view.template());
-        view.circles.each( function(circle) {
-          if (circle.escape("circle_name") === "private") debugger;
-
-          var showView = new FriendsApp.Views.CircleShow({
-            model: circle
-          }); 
-          view.$el.append(showView.render().$el);
-        });
+        view.renderCircleForm();
+        view.renderCircles();
         view.renderMembers();
       }
     });
     return this;
+  },
+
+  renderCircleForm: function() {
+    var formView = new FriendsApp.Views.CircleForm();
+    this.$el.append(formView.render().$el);
+  },
+
+  renderCircles: function() {
+    var view = this;
+    view.circles.each( function(circle) {
+      if (circle.escape("display") === "false") return;
+
+      var showView = new FriendsApp.Views.CircleShow({
+        model: circle
+      }); 
+      view.$el.append(showView.render().$el);
+    });
   },
  
   renderMembers: function() {

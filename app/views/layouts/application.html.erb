@@ -13,10 +13,7 @@
 
   <!-- load in user ID -->
   <script>
-    $(document).ready(function(){
-      FriendsApp.initialize();
-    });
-    FriendsApp.user_id = <%= current_user ? current_user.id : 0 %>
+    FriendsApp.user_id = <%= current_user.id %>
   </script>
 
 <% end %>
