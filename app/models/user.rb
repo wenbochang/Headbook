@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
 
   after_initialize :ensure_session_token
 
+  after_create :create_default_circles
+
   has_many :circles
   has_many :memberships
   has_many :posts
@@ -16,12 +18,16 @@ class User < ActiveRecord::Base
 
   def self.find_by_credentials(params)
     u = User.find_by_username(params[:username])
+    return u if u && u.is_password?(params[:password])
+  end
 
-    if u && u.is_password?(params[:password])
-      return u
-    end
-
-    nil
+  def create_default_circles
+    Circle.create!(:circle_name => "friends", :user_id => self.id,
+                   :removable => "false")
+    Circle.create!(:circle_name => "strangers", :user_id => self.id,
+                   :removable => "false")
+    Circle.create!(:circle_name => "private", :user_id => self.id,
+                   :removable => "false", :display => "false")
   end
 
   def password=(password)

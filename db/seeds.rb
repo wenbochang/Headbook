@@ -5,10 +5,6 @@ User.create!(:username => "user1", :password => "asd")
 User.create!(:username => "user2", :password => "asd")
 User.create!(:username => "user3", :password => "asd")
 
-#ad 2 circles for user1, 1 for friend and 1 for stranger
-Circle.create!(:circle_name => "friends", :user_id => 1)
-Circle.create!(:circle_name => "strangers", :user_id => 1)
-
 #add user 2 to user 1's friends circle
 Membership.create!(:circle_id => 1, :user_id => 2)
 Membership.create!(:circle_id => 2, :user_id => 3)

@@ -14,21 +14,37 @@
         <h4 class="modal-title" id="myModalLabel">New Photo</h4>
       </div>
       <div class="modal-body">
-        <form action="javascript:void(0);" enctype="multipart/form-data">
-          <label for="photo-title">Photo Title</label>
-          <input id="photo-title" name="photo[title]" type="text">
 
-          <label for="photo-url">Photo URL</label>
-          <input id="photo-url" name="photo[url]" type="text">
+        <!-- Form -->
+        <form role="form" enctype="multipart/form-data">
+          <div class="form-group">
+            <label for="photo-title">Photo Title</label>
+            <input id="photo-title" name="photo[title]" type="text">
+          </div>
 
-          <label for="photo-circle-id">Photo Circle</label>
-          <input id="photo-circle-id" name="photo[circle_id]" type="text">
+          <div class="form-group">
+            <label for="photo-url">Photo URL</label>
+            <input id="photo-url" name="photo[url]" type="text">
+            <input type="file" name="photo[file_data]">
+          </div>
 
-          <input type="file" name="photo[file_data]">
-         
-          <input type="submit" class="btn btn-primary" 
-            id="new-photo-btn" value="Add Photo">
+          <div class="form-group">
+            <label for="photo-circle-id">Circle:</label>
+            <select id="photo-circle-id" name="photo[circle_id]">
+              <% circles.each( function(circle) { %>
+                <option value=<%=circle.id%>>
+                  <%= circle.escape("circle_name") %>
+                </option>
+              <% }) %>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <input type="submit" class="btn btn-primary" 
+              id="new-photo-btn" value="Add Photo">
+          </div>
         </form>
+
       </div>
    </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->

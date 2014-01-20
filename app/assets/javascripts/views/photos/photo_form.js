@@ -8,7 +8,9 @@ FriendsApp.Views.PhotoForm = Backbone.View.extend({
 
   render: function() {
     var view = this;
-    var renderedContent = this.template();
+    var renderedContent = this.template({
+      circles: FriendsApp.circles
+    });
     this.$el.html(renderedContent);
     return this;
   },
@@ -29,6 +31,7 @@ FriendsApp.Views.PhotoForm = Backbone.View.extend({
   },
 
   submit: function(event) {
+    event.preventDefault();
 
     var attrs = $(event.currentTarget.form).serializeJSON();
     attrs.photo.user_id = FriendsApp.user_id;

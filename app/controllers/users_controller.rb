@@ -7,7 +7,6 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      self.create_default_circles
       session[:session_token] = @user.session_token
       redirect_to @user
     else
@@ -25,8 +24,4 @@ class UsersController < ApplicationController
     redirect_to new_session_url unless current_user
   end
 
-  def create_default_circles
-    Circle.create!(:circle_name => "friends", :user_id => @user.id)
-    Circle.create!(:circle_name => "strangers", :user_id => @user.id)
-  end
 end
