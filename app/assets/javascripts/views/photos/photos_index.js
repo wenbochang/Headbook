@@ -14,7 +14,7 @@ FriendsApp.Views.PhotosIndex = Backbone.View.extend({
 
     var view = this;
 
-   //first fetch collection of photos
+    //first fetch collection of photos
     this.collection.fetch({
       success: function() {
 

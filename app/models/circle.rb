@@ -3,7 +3,7 @@ class Circle < ActiveRecord::Base
 
   validates :circle_name, :user_id, :presence => true
 
-  after_initialize :set_default_display_removable
+#  after_initialize :set_default_display_removable
 
   belongs_to :user
   has_many :memberships

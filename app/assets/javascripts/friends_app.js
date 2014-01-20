@@ -12,7 +12,3 @@ window.FriendsApp = {
   }
 
 };
-
-$(document).ready(function(){
-  FriendsApp.initialize();
-});

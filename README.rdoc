@@ -1,5 +1,11 @@
 TODO
 
+Questions
+[] dropzonejs form not working
+[] how to avoid extra base div from views this.$el
+[] default circle attributes
+[] do we need to swapView on nested?
+
 Back-end
 [] logged in as correct user to see show page
 [] add/delete circles

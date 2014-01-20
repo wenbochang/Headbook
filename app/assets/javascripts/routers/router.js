@@ -18,15 +18,10 @@ FriendsApp.Routers.Router = Backbone.Router.extend({
   },
 
   circlesIndex: function() {
-    var router = this;
-    FriendsApp.circles.fetch({
-      success: function() {
-        var view = new FriendsApp.Views.CirclesIndex({
-          circles: FriendsApp.circles
-        });
-        router._swapView(view);
-      }
+    var view = new FriendsApp.Views.CirclesIndex({
+      circles: FriendsApp.circles
     });
+    this._swapView(view);
   },
 
   postsIndex: function(){
