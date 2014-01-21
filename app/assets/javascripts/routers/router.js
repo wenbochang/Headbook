@@ -17,7 +17,9 @@ FriendsApp.Routers.Router = Backbone.Router.extend({
     FriendsApp.circles = new FriendsApp.Collections.Circles();
     FriendsApp.users = new FriendsApp.Collections.Users();
 
-    if (FriendsApp.user_id) FriendsApp.circles.fetch();
+    if (FriendsApp.user_id) {
+      FriendsApp.circles.fetch();
+    }
   },
 
   circlesIndex: function() {

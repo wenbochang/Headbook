@@ -11,7 +11,7 @@ FriendsApp.Views.MembersIndex = Backbone.View.extend({
     this.$el.html();
 
     //append each member
-    this.members.each( function(member) {
+    _.each( this.members, function(member) {
       var showView = new FriendsApp.Views.MemberShow({
         model: member
       });

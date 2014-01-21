@@ -3,25 +3,23 @@
 2. Each panel contains a list group for memberships
 3. List group items are associates of user by circle
 -->
-<div class="col-xs-3 friend-circle" data-id=<%= circle.id %> >
-  <div class="panel panel-info">
+<div class="panel panel-info">
 
-    <!-- Circle header -->
-    <div class="panel-heading">
-      <%= circle.escape("circle_name") %> 
+  <!-- Circle header -->
+  <div class="panel-heading">
+    <%= circle.escape("circle_name") %> 
 
-      <!-- [-] Hide btn -->
-      <button type="button" class="circle-minimize" >&ndash;</button>
+    <!-- [-] Hide btn -->
+    <button type="button" class="circle-minimize" >&ndash;</button>
 
-      <!-- [X] close btn -->
-      <% if (circle.escape("removable") != "false") { %>
-        <button type="button" class="close circle-close" >&times;</button>
-      <% } %>
-    </div>
+    <!-- [X] close btn -->
+    <% if (circle.escape("removable") != "false") { %>
+      <button type="button" class="close circle-close" >&times;</button>
+    <% } %>
+  </div>
 
-    <!-- Circle members -->
-    <div class="panel-body">
-      <ul class="list-group circle-members"></ul>
-    </div>
+  <!-- Circle members -->
+  <div class="panel-body">
+    <ul class="list-group circle-members"></ul>
   </div>
 </div>

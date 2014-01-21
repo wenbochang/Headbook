@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :photos
 
+  has_many :associates, :through => :circles, :source => :members
   has_many :in_circles, :through => :memberships, :source => :circle
   has_many :shared_posts, :through => :in_circles, :source => :posts
   has_many :shared_photos, :through => :in_circles, :source => :photos

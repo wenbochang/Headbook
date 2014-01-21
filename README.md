@@ -1,11 +1,9 @@
-[] make actual circles
 TODO
 
 Questions
 [] dropzonejs form not working
 [] how to avoid extra base div from views this.$el
 [] how to set default circle attributes
-[] do we need to swapView on nested?
 
 DB constraints
 [] unique usernames
@@ -24,6 +22,7 @@ Front-end
 [] order all posted items by time
 [] drag member from a circle to next
 [] make landing page
+[] load associates once instead of members for each circle
 
 Backbone
 [x] backbone for posts

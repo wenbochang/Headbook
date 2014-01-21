@@ -1,7 +1,6 @@
 class CirclesController < ApplicationController
   def index
-    user = User.find(params[:user_id])
-    circles = user.circles
+    circles = current_user.circles
     render :json => circles.to_json(:include => :members)
   end
 
