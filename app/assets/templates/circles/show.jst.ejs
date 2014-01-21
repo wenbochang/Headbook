@@ -1,5 +1,9 @@
-<!-- contains 1 "circle" -->
-<div class="col-xs-4 friend-circle" data-id=<%= circle.id %> >
+<!-- 
+1. Each single is down as a panel
+2. Each panel contains a list group for memberships
+3. List group items are associates of user by circle
+-->
+<div class="col-xs-3 friend-circle" data-id=<%= circle.id %> >
   <div class="panel panel-info">
 
     <!-- Circle header -->
@@ -16,7 +20,8 @@
     </div>
 
     <!-- Circle members -->
-    <div class="panel-body circle-members">
+    <div class="panel-body">
+      <ul class="list-group circle-members"></ul>
     </div>
   </div>
 </div>

@@ -1,6 +1,4 @@
 FriendsApp.Views.MembersIndex = Backbone.View.extend({
-  template: JST["members/index"],
-
   events: {
   },
 
@@ -10,8 +8,7 @@ FriendsApp.Views.MembersIndex = Backbone.View.extend({
 
   render: function() {
     var view = this;
-    var renderedContent = this.template()
-    this.$el.html(renderedContent);
+    this.$el.html();
 
     //append each member
     this.members.each( function(member) {

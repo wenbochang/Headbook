@@ -3,10 +3,11 @@ FriendsApp.Views.CircleShow = Backbone.View.extend({
 
   events: {
     "click .circle-close": "destroy",
-    "click .circle-minimize": "minimize"
+    "click .circle-minimize": "minimize",
   },
 
   render: function() {
+    var view = this;
     var renderedContent = this.template({
       circle: this.model
     });
@@ -21,6 +22,11 @@ FriendsApp.Views.CircleShow = Backbone.View.extend({
       members: this.model.get("members")
     });
     circleContainer.html(memberView.render().$el);
+    circleContainer.droppable();
+  },
+
+  dropped: function(event) {
+    console.log("dropped");
   },
 
   minimize: function() {

@@ -15,6 +15,7 @@ FriendsApp.Views.UserShow = Backbone.View.extend({
   },
 
   sendRequest: function(event) {
+    //custom request to add a Stranger membership between users
     event.preventDefault();
     $.ajax({
       url: "/friendRequests",

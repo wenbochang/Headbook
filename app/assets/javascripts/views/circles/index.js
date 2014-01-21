@@ -45,7 +45,7 @@ FriendsApp.Views.CirclesIndex = Backbone.View.extend({
       var showView = new FriendsApp.Views.CircleShow({
         model: circle
       }); 
-      view.$el.append(showView.render().$el);
+      view.$("#circle-body").append(showView.render().$el);
     });
   },
 

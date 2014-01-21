@@ -9,6 +9,7 @@ FriendsApp.Views.MemberShow = Backbone.View.extend({
       member: this.model
     });
     this.$el.html(renderedContent);
+    this.$el.draggable();
     return this;
   }
 
