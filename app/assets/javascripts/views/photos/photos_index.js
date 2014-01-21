@@ -30,7 +30,7 @@ FriendsApp.Views.PhotosIndex = Backbone.View.extend({
           var photoView = new FriendsApp.Views.PhotoShow({
             model: photo
           });
-          view.$el.append(photoView.render().$el);
+          view.$(".photo-container").append(photoView.render().$el);
         });
       }
     });

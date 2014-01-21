@@ -1,6 +1,8 @@
 class MembershipsController < ApplicationController
   def index
-    render :json => Membership.all.to_json(:include => :user)
+    render :json => Membership.select(
+      "memberships.*, users.username AS username"
+    ).joins(:user)
   end
 
   def update

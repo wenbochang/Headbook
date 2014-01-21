@@ -1,7 +1,6 @@
 class CirclesController < ApplicationController
   def index
-    circles = current_user.circles
-    render :json => circles #circles.to_json(:include => :memberships)
+    render :json => current_user.circles
   end
 
   def create

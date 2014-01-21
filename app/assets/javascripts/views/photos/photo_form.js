@@ -12,6 +12,7 @@ FriendsApp.Views.PhotoForm = Backbone.View.extend({
       circles: FriendsApp.circles
     });
     this.$el.html(renderedContent);
+    this.$el.addClass("row");
     return this;
   },
 

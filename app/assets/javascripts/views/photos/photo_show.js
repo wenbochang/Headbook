@@ -12,7 +12,6 @@ FriendsApp.Views.PhotoShow = Backbone.View.extend({
       photo: this.model
     });
     this.$el.html(renderedPhoto);
-    
     return this;
   }
 })
