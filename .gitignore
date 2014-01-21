@@ -18,5 +18,4 @@
 # Ignore application configuration
 /config/application.yml
 
-# TEMP NO DEV SO AWS KEY IS NOT UPLOADED, USE FIGARO LATER
-*development.rb
+

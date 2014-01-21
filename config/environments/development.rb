@@ -39,8 +39,8 @@ FriendsApp::Application.configure do
     :storage => :s3,
     :s3_credentials => {
       :bucket => "friends-app-dev",
-      :access_key_id => "",
-      :secret_access_key => "",
+      :access_key_id => ENV["AWS_ACCESS"],
+      :secret_access_key => ENV["AWS_SECRET"],
       :s3_host_name => 's3-us-west-1.amazonaws.com'
     }
   }
