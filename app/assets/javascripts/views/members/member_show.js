@@ -6,10 +6,10 @@ FriendsApp.Views.MemberShow = Backbone.View.extend({
 
   render: function() {
     var renderedContent = this.template({
-      member: this.model
+      membership: this.model
     });
     this.$el.html(renderedContent);
-    this.$el.draggable()
+    this.$el.attr("data-membership-id", this.model.id);
     return this;
   },
 

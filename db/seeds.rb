@@ -4,10 +4,12 @@
 User.create!(:username => "user1", :password => "asd")
 User.create!(:username => "user2", :password => "asd")
 User.create!(:username => "user3", :password => "asd")
+User.create!(:username => "user4", :password => "asd")
 
 #add user 2 to user 1's friends circle
 Membership.create!(:circle_id => 1, :user_id => 2)
 Membership.create!(:circle_id => 2, :user_id => 3)
+Membership.create!(:circle_id => 2, :user_id => 4)
 
 #posts
 Post.create!(:body => "post1 by user1, shared with circle1", 

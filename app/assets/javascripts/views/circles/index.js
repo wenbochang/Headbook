@@ -12,6 +12,8 @@ FriendsApp.Views.CirclesIndex = Backbone.View.extend({
     _(events).each(function (event) {
       view.listenTo(view.circles, event, view.render);
     });
+
+    view.listenTo(FriendsApp.memberships, "change:circle_id", view.render);
   },
 
   render: function() {

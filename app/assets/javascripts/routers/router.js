@@ -16,6 +16,7 @@ FriendsApp.Routers.Router = Backbone.Router.extend({
     FriendsApp.photos = new FriendsApp.Collections.Photos();
     FriendsApp.circles = new FriendsApp.Collections.Circles();
     FriendsApp.users = new FriendsApp.Collections.Users();
+    FriendsApp.memberships = new FriendsApp.Collections.Memberships();
 
     if (FriendsApp.user_id) {
       FriendsApp.circles.fetch();
@@ -23,10 +24,15 @@ FriendsApp.Routers.Router = Backbone.Router.extend({
   },
 
   circlesIndex: function() {
+    var router = this;
     var view = new FriendsApp.Views.CirclesIndex({
       circles: FriendsApp.circles
     });
-    this._swapView(view);
+    FriendsApp.memberships.fetch({
+      success: function() {
+        router._swapView(view);
+      }
+    });
   },
 
   postsIndex: function(){
