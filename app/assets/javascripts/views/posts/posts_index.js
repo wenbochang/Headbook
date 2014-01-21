@@ -7,7 +7,6 @@ FriendsApp.Views.PostsIndex = Backbone.View.extend({
 
   initialize: function(options) {
     this.posts= options.posts;
-    this.circles = options.circles;
 
     var view = this;
     var events = ["add", "remove"];
@@ -19,7 +18,7 @@ FriendsApp.Views.PostsIndex = Backbone.View.extend({
   render: function() {
     var renderedContent = this.template({
       posts: this.posts,
-      circles: this.circles
+      circles: FriendsApp.circles
     });
     this.$el.html(renderedContent);
     return this;

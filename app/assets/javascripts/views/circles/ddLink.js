@@ -1,7 +1,7 @@
 FriendsApp.Views.CircleDropdownShow = Backbone.View.extend({
   tagName: "li",
 
-  template: JST["circles/dropdownShow"],
+  template: JST["circles/ddLink"],
 
   events: {
     "click a": "unhide"
@@ -18,7 +18,7 @@ FriendsApp.Views.CircleDropdownShow = Backbone.View.extend({
 
   unhide: function(event){
     event.preventDefault();
-    this.model.set({display: "true"});
+    this.model.set({display: ""});
     this.model.save();
   }
 

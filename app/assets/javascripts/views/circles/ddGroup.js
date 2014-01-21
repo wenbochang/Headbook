@@ -1,12 +1,13 @@
 FriendsApp.Views.CircleDropdownIndex = Backbone.View.extend({
-  template: JST["circles/dropdownIndex"],
+  template: JST["circles/ddGroup"],
 
   render: function() {
     var view = this;
     var renderedContent = this.template();
     this.$el.html(renderedContent);
+    this.$el.attr("class", "col-xs-2");
 
-    //render hidden circles
+    //show hidden circles in dropdown
     FriendsApp.circles.each( function(circle) {
       if (circle.escape("display") === "") return;
       

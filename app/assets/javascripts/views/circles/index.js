@@ -29,12 +29,12 @@ FriendsApp.Views.CirclesIndex = Backbone.View.extend({
 
   renderCircleForm: function() {
     var formView = new FriendsApp.Views.CircleForm();
-    this.$el.append(formView.render().$el);
+    this.$("#circle-header").append(formView.render().$el);
   },
 
   renderCircleDropdown: function() {
     var dropDownIndexView = new FriendsApp.Views.CircleDropdownIndex();
-    this.$el.append(dropDownIndexView.render().$el);
+    this.$("#circle-header").append(dropDownIndexView.render().$el);
   },
 
   renderCircles: function() {
