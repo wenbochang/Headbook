@@ -1,8 +1,11 @@
 class MembershipsController < ApplicationController
   def index
-    render :json => Membership.select(
-      "memberships.*, users.username AS username"
-    ).joins(:user)
+    render :json => Membership
+      .select("memberships.*, username")
+      .joins(:user)
+      .joins(:circle)
+      .where("circles.user_id" => current_user.id)
+
   end
 
   def update

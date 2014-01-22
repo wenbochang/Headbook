@@ -1,5 +1,7 @@
 FriendsApp.Views.PostsIndex = Backbone.View.extend({
-  template: JST["posts/index"],
+  formTemplate: JST["posts/index"],
+
+  postTemplate: JST["posts/show"],
 
   events: {
     "click #new-post-btn": "submit"
@@ -16,21 +18,38 @@ FriendsApp.Views.PostsIndex = Backbone.View.extend({
   },
 
   render: function() {
-    var renderedContent = this.template({
-      posts: this.posts,
+    FriendsApp.circles.fetch({
+      success: this.renderForm()
+    });
+    FriendsApp.posts.fetch({
+      success: this.renderPosts()
+    });
+    return this;
+  },
+
+  renderForm: function() {
+    var renderedForm = this.formTemplate({
       circles: FriendsApp.circles
     });
-    this.$el.html(renderedContent);
-    return this;
+    this.$el.html(renderedForm);
+  },
+
+  renderPosts: function() {
+    var view = this;
+    this.posts.each( function(post) {
+      var renderedPost = view.postTemplate({
+        post: post
+      });
+
+      view.$(".posts-container").append(renderedPost);
+    });
   },
 
   submit: function(event) {
     event.preventDefault();
-    var user_id = FriendsApp.user_id;
-    var body = $("#post-body").val();
-    var circle_id = $("#post-circle-id").val();
-    this.posts.create({ user_id: user_id, 
-      body: body, circle_id: circle_id });
+    var attrs = $(event.currentTarget.form).serializeJSON();
+    attrs.user_id = FriendsApp.user_id;
+    this.posts.create(attrs);
   }
 
 })

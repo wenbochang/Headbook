@@ -16,7 +16,7 @@ Post.create!(:body => "post1 by user1, shared with circle1",
              :circle_id => 1, :user_id => 1)
 
 #Photos
-Photo.create!(:title => "photo1 by user1, shared w/ circle2", 
-              :url => "http://placekitten.com/200/300",
-              :circle_id => 2, :user_id => 1)
+#Photo.create!(:title => "photo1 by user1, shared w/ circle2", 
+#              :url => "http://placekitten.com/200/300",
+#              :circle_id => 2, :user_id => 1)
 

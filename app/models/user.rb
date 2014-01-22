@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
                    :removable => "false")
     Circle.create!(:circle_name => "Strangers", :user_id => self.id,
                    :removable => "false")
-    Circle.create!(:circle_name => "private", :user_id => self.id,
+    Circle.create!(:circle_name => "Private", :user_id => self.id,
                    :removable => "false", :display => "false")
   end
 

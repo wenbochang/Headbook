@@ -49,8 +49,5 @@ FriendsApp.Views.CirclesIndex = Backbone.View.extend({
       }); 
       view.$("#circle-body").append(showView.render().$el);
     });
-  },
-
-//reference for using data ID 
-//      var circleContainer = view.$(".circle-members[data-id=" + circle.id + "]");
+  }
 });

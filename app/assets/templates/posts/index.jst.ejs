@@ -1,22 +1,28 @@
-<form>
-  <label for="post-body">Post Body</label>
-  <input id="post-body" type="text">
+<form class="form-inline" role="form">
+  <div class="form-group">
+    <label class="sr-only" for="post-body">Post Body</label>
+    <input class="form-control" id="post-body" type="text"
+      name="body" placeholder="Post Body">
+  </div>
 
-  <select id="post-circle-id">
-    <% circles.each( function(circle) { %>
-      <option value=<%=circle.id%>>
-        <%= circle.escape("circle_name") %>
-      </option>
-    <% }) %>
-  </select>
+  <div class="form-group">
+    <select class="form-control" name="circle_id" id="post-circle-id">
+      <% circles.each( function(circle) { %>
+        <option value=<%=circle.id%>>
+          <%= circle.escape("circle_name") %>
+        </option>
+      <% }) %>
+    </select>
+  </div>
 
-  <input type="submit" id="new-post-btn" value="Add Post">
+  <div class="form-group">
+    <input class="btn btn-primary" type="submit" 
+      id="new-post-btn" value="Add Post">
+  </div>
 </form>
 
-<ul>
-  <% posts.each( function(post) { %>
-    <li>
-      <%= post.escape("body") %>
-    </li>
-  <% }) %>
-</ul>
+<div class="row spacer">
+  <ul class="col-xs-4 col-xs-offset-1 list-group posts-container">
+  </ul>
+</div>
+

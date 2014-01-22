@@ -1,7 +1,9 @@
 class PostsController < ApplicationController
   def index
-    @user = User.find(params[:user_id])
-    render :json => @user.posts 
+    render :json => Post
+      .select("posts.*, circle_name")
+      .joins(:circle)
+      .where(:user_id => params[:user_id])
   end
 
   def create
