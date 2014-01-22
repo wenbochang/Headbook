@@ -6,6 +6,10 @@ FriendsApp.Views.CircleShow = Backbone.View.extend({
     "click .circle-minimize": "minimize",
   },
 
+  initialize: function() {
+    this.memberships = this.model.get("memberships");
+  },
+
   render: function() {
     var view = this;
     var renderedContent = this.template({
@@ -24,34 +28,28 @@ FriendsApp.Views.CircleShow = Backbone.View.extend({
     this.circleContainer.sortable({
       connectWith: ".circle-members",
       dropOnEmpty: true,
-      stop: this.updateMembership
+      stop: this.updateMembership.bind(this)
     }).disableSelection();
   },
 
   renderMembers: function() {
     var view = this;
-    //memberships just an array after filter, cannot use collection.each
-    //loop to render individual members
-    _.each(this.getMemberships(), function(member) {
+    this.memberships.each( function(membership) {
       var memberShowView = new FriendsApp.Views.MemberShow({
-        model: member
+        model: membership
       });
       view.circleContainer.append(memberShowView.render().$el);
-    });
-  },
-
-  getMemberships: function() {
-    var view = this;
-    return FriendsApp.memberships.filter( function(membership) {
-      return membership.get("circle_id") === view.model.id
-    });
+    })
   },
 
   updateMembership: function(event, ui) {
+    if (!ui.item.parent().data("circle-id")) return;
+
     var membershipID = ui.item.data("membership-id");
     var newCircleID = ui.item.parent().data("circle-id");
-    var m = FriendsApp.memberships.get(membershipID);
-    m.save({  circle_id: newCircleID });
+//    var newIndex = ui.item.index();
+    var membership = this.memberships.get(membershipID);
+    membership.save({  circle_id: newCircleID });
   },
 
   minimize: function() {

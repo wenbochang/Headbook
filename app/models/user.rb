@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   attr_accessible :password, :username
 
   validates :password_digest, :username, :presence => true
+  validates :username, :uniqueness => true
 
   after_initialize :ensure_session_token
 

@@ -4,8 +4,8 @@ FriendsApp.Views.CirclesIndex = Backbone.View.extend({
   events: {
   },
 
-  initialize: function(options) {
-    this.circles = options.circles;
+  initialize: function() {
+    this.circles = FriendsApp.circles;
 
     var view = this;
     var events = ["add", "change:display", "remove"]; 
@@ -13,7 +13,6 @@ FriendsApp.Views.CirclesIndex = Backbone.View.extend({
       view.listenTo(view.circles, event, view.render);
     });
 
-    view.listenTo(FriendsApp.memberships, "change:circle_id", view.render);
   },
 
   render: function() {

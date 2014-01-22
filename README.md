@@ -16,13 +16,13 @@ Backend
 Front-end 
 [x] change post form to allow for dropdown to select circle
 [x] add/delete circles
+[x] display feed
+[x] drag member from a circle to next
+[x] load associates once instead of members for each circle
 [] logged in as correct user to see show page
-[] display feed
 [] navbar lists, add a listener to highlight based on page?
 [] order all posted items by time
-[] drag member from a circle to next
 [] make landing page
-[] load associates once instead of members for each circle
 
 Backbone
 [x] backbone for posts
