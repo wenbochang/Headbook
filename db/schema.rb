@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(:version => 20140122164043) do
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.integer  "list_index"
+    t.float    "list_index"
   end
 
   create_table "photos", :force => true do |t|

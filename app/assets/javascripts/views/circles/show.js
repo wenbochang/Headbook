@@ -47,9 +47,28 @@ FriendsApp.Views.CircleShow = Backbone.View.extend({
 
     var membershipID = ui.item.data("membership-id");
     var newCircleID = ui.item.parent().data("circle-id");
-//    var newIndex = ui.item.index();
+    var newIndex = ui.item.index();
+    var newMembershipOrder = this.getNewOrder(ui);
     var membership = this.memberships.get(membershipID);
-    membership.save({  circle_id: newCircleID });
+    membership.save({
+      circle_id: newCircleID,
+      list_index: newMembershipOrder
+    });
+  },
+
+  getNewOrder: function(ui) {
+    var node = ui.item[0];
+    if (!node.previousSibling && !node.nextSibling) {
+      return 0; //empty
+    } else if (!node.previousSibling) {
+      return -1 + $(node.nextSibling).data("order"); //top most
+    } else if (!node.nextSibling) {
+      return 1 + $(node.previousSibling).data("order"); //bottom most
+    } else {
+      var prev = $(node.previousSibling).data("order");
+      var next = $(node.nextSibling).data("order");
+      return (prev + next) / 2;
+    }
   },
 
   minimize: function() {
