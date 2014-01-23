@@ -28,7 +28,8 @@ FriendsApp.Views.CircleShow = Backbone.View.extend({
     this.circleContainer.sortable({
       connectWith: ".circle-members",
       dropOnEmpty: true,
-      stop: this.updateMembership.bind(this)
+      start: this.startDrag.bind(this),
+      stop: this.stopDrag.bind(this)
     }).disableSelection();
   },
 
@@ -42,9 +43,15 @@ FriendsApp.Views.CircleShow = Backbone.View.extend({
     })
   },
 
-  updateMembership: function(event, ui) {
+  startDrag: function(event, ui) {
+    this.startCircle = ui.item.parents(".panel-info").data("circle-name");
+  },
+
+  stopDrag: function(event, ui) {
+    this.endCircle = ui.item.parents(".panel-info").data("circle-name");
+
     var membershipID = ui.item.data("membership-id");
-    var newCircleID = ui.item.parent().data("circle-id");
+    var newCircleID = ui.item.parents().data("circle-id");
     var newIndex = ui.item.index();
     var newMembershipOrder = this.getNewOrder(ui);
     var membership = this.memberships.get(membershipID);
@@ -52,7 +59,22 @@ FriendsApp.Views.CircleShow = Backbone.View.extend({
     if (membership && newCircleID) {
       membership.save({
         circle_id: newCircleID,
-        list_index: newMembershipOrder
+        list_index: newMembershipOrder,
+      });
+      this.checkAcceptRequest(ui, membership)
+    }
+  },
+
+  checkAcceptRequest: function(ui, membership) {
+    console.log("start circle: " + this.startCircle);
+    console.log("end circle: " + this.endCircle);
+    if (this.startCircle === "Strangers" && this.endCircle === "Friends"){
+      $.ajax({
+        url: "/accept",
+        type: "POST",
+        data: {
+          new_friend_id: membership.get("user").id
+        },
       });
     }
   },
