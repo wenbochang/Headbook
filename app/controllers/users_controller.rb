@@ -24,7 +24,4 @@ class UsersController < ApplicationController
     redirect_to new_session_url unless current_user
   end
 
-  def index
-    render :json => User.all - current_user.associates
-  end
 end

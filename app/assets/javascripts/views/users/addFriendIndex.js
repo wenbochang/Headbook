@@ -1,15 +1,22 @@
 FriendsApp.Views.AddFriendIndex = Backbone.View.extend({
   tagName: "ul",
 
+  initialize: function() {
+    this.listenTo(FriendsApp.users, "add", this.render);
+  }, 
+
   render: function() {
     var view = this;
-    FriendsApp.users.fetch({
-      success: function() {
         view.$el.html();
         view.$el.addClass("list-group col-xs-6")
         view.renderUsers.bind(view)();
-      }
-    });
+//    FriendsApp.users.fetch({
+//      success: function() {
+//        view.$el.html();
+//        view.$el.addClass("list-group col-xs-6")
+//        view.renderUsers.bind(view)();
+//      }
+//    });
     return this;
   },
 

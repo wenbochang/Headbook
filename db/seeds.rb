@@ -3,16 +3,15 @@
 #
 User.create!(:username => "wenbo", :email => "enquea@gmail.com", :password => "asd")
 User.create!(:username => "eric", :email => "e.s.robinson@gmail.com", :password => "asd")
-User.create!(:username => "user3", :password => "asd")
-User.create!(:username => "user4", :password => "asd")
+User.create!(:username => "sol", :email => "solomon.garger@gmail.com", :password => "asd")
 
 #add user 2 to user 1's friends circle
-Membership.create!(:circle_id => 2, :user_id => 3, :list_index => 1)
-Membership.create!(:circle_id => 2, :user_id => 4, :list_index => 0)
+#Membership.create!(:circle_id => 2, :user_id => 3, :list_index => 1)
+#Membership.create!(:circle_id => 2, :user_id => 4, :list_index => 0)
 
 #posts
-Post.create!(:body => "post by wenbo, shared with friends", 
-             :circle_id => 1, :user_id => 1)
+#Post.create!(:body => "post by wenbo, shared with friends", 
+#             :circle_id => 1, :user_id => 1)
 
 #Photos
 #Photo.create!(:title => "photo1 by user1, shared w/ circle2", 

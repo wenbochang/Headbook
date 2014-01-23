@@ -1,5 +1,5 @@
 FriendsApp.Collections.Users = Backbone.Collection.extend({
-  url: "users",
+  url: "/memberships",
 
   model: FriendsApp.Models.User,
 

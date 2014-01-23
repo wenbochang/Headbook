@@ -7,6 +7,7 @@ FriendsApp::Application.routes.draw do
 
   resources :memberships, :only => [:new, :index, :create, :update, :destroy]
 
+  get "add_friends", :to => "add_friends#index"
   post "accept", :to => "memberships#accept"
   post "friendRequests", :to => "friend_requests#create"
 

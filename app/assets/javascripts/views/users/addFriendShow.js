@@ -19,6 +19,17 @@ FriendsApp.Views.AddFriendShow = Backbone.View.extend({
   sendRequest: function(event) {
     //custom request to add a Stranger membership between users
     event.preventDefault();
+    //in our strangers circle, add user we send request to
+    var our_stranger_circle = FriendsApp.circles.find( 
+      function(model) { 
+        return model.escape("circle_name") === "Strangers";
+      } 
+    )
+    FriendsApp.users.create({ 
+      circle_id: our_stranger_circle.id,
+      user_id: this.model.id 
+    });
+
     $.ajax({
       url: "/friendRequests",
       type: "POST",
