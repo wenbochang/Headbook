@@ -1,4 +1,6 @@
 <li class="list-group-item ui-state-default">
-  username: <%= membership.get("user").username %>
+  <img src="http://www.gravatar.com/avatar/<%= membership.get('user').email_md5 %>" />
+
+  <%= membership.get("user").username %>
 </li> 
 

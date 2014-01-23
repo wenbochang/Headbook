@@ -1,4 +1,6 @@
-FriendsApp.Views.UserShow = Backbone.View.extend({
+FriendsApp.Views.AddFriendShow = Backbone.View.extend({
+  tagName: "li",
+
   template: JST["users/show"],
 
   events: {
@@ -10,7 +12,7 @@ FriendsApp.Views.UserShow = Backbone.View.extend({
       user: this.model
     });
     this.$el.html(renderedContent);
-    this.$el.attr("class", "row");
+    this.$el.addClass("list-group-item");
     return this;
   },
 

@@ -7,7 +7,7 @@ class FriendRequestsController < ApplicationController
     @friend_circle = @to_user.circles.where(:circle_name => "Strangers").first
     Membership.create!(
       :circle_id => @friend_circle.id, 
-#      :circle_index => @friend_circle.memberships.length
+      :list_index => -1 * @friend_circle.memberships.length,
       :user_id => params[:from_user_id]
     )
     head :ok

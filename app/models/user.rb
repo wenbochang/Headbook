@@ -1,10 +1,15 @@
 class User < ActiveRecord::Base
-  attr_accessible :password, :username
+  extend FriendlyId
+  friendly_id :username, :use => :slugged
+
+  attr_accessible :password, :username, :email
+
+  before_validation :ensure_session_token
 
   validates :password_digest, :username, :presence => true
   validates :username, :uniqueness => true
 
-  after_initialize :ensure_session_token
+  before_create :make_md5_email
 
   after_create :create_default_circles
 
@@ -48,8 +53,12 @@ class User < ActiveRecord::Base
   end
 
   private
+  def make_md5_email
+    return unless self.email
+    self.email_md5 ||= Digest::MD5.hexdigest(self.email.downcase)
+  end
 
   def ensure_session_token
-    self.session_token ||= self.reset_session_token!
+    self.session_token ||= SecureRandom::urlsafe_base64(16)
   end
 end

@@ -3,7 +3,7 @@ FriendsApp.Routers.Router = Backbone.Router.extend({
     "posts": "postsIndex",
     "photos": "photosIndex",
     "circles": "circlesIndex",
-    "users": "usersIndex"
+    "add-friend": "addFriendIndex"
   },
 
   initialize: function(options){
@@ -49,11 +49,11 @@ FriendsApp.Routers.Router = Backbone.Router.extend({
     });
   },
 
-  usersIndex: function() {
+  addFriendIndex: function() {
     var router = this;
     FriendsApp.users.fetch({
       success: function() {
-        var view = new FriendsApp.Views.UsersIndex({
+        var view = new FriendsApp.Views.AddFriendIndex({
           collection: FriendsApp.users
         });
         router._swapView(view);

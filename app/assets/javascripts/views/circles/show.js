@@ -43,17 +43,18 @@ FriendsApp.Views.CircleShow = Backbone.View.extend({
   },
 
   updateMembership: function(event, ui) {
-    if (!ui.item.parent().data("circle-id")) return;
-
     var membershipID = ui.item.data("membership-id");
     var newCircleID = ui.item.parent().data("circle-id");
     var newIndex = ui.item.index();
     var newMembershipOrder = this.getNewOrder(ui);
     var membership = this.memberships.get(membershipID);
-    membership.save({
-      circle_id: newCircleID,
-      list_index: newMembershipOrder
-    });
+
+    if (membership && newCircleID) {
+      membership.save({
+        circle_id: newCircleID,
+        list_index: newMembershipOrder
+      });
+    }
   },
 
   getNewOrder: function(ui) {
