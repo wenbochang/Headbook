@@ -1,6 +1,6 @@
 FriendsApp.Routers.Router = Backbone.Router.extend({
   routes: {
-    "posts": "postsIndex",
+    "thoughts": "postsIndex",
     "photos": "photosIndex",
     "circles": "circlesIndex",
     "add-friend": "addFriendIndex"

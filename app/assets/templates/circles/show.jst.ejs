@@ -10,13 +10,14 @@
   <div class="panel-heading">
     <%= circle.escape("circle_name") %> 
 
-    <!-- [-] Hide btn -->
-    <button type="button" class="circle-minimize" >&ndash;</button>
-
     <!-- [X] close btn -->
     <% if (circle.escape("removable") != "false") { %>
-      <button type="button" class="close circle-close" >&times;</button>
+      <button type="button" class="window-btn circle-close" >&times;</button>
+
     <% } %>
+    <!-- [-] Hide btn -->
+    <button type="button" class="window-btn circle-minimize" >&ndash;</button>
+
   </div>
 
   <!-- Circle members -->

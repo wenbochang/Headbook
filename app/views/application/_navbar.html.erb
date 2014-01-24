@@ -9,22 +9,23 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
+    <a class="navbar-brand" href= <%="/users/#{current_user.username}/"%>>
+      Headbook
+    </a>
   </div>
 
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse" id="#main_nav">
     <ul class="nav navbar-nav">
       <li>
-        <a class="navbar-brand" href= <%="/users/#{current_user.username}/"%>>
             <img class="img-rounded" 
               src="http://www.gravatar.com/avatar/<%= current_user.email_md5 %>" />
-        </a>
       </li>
       <li>
         <a id="circles-link" href="/#circles"%>Circles</a>
       </li>
       <li>
-        <a id="posts_link" href="/#posts">Posts</a>
+        <a id="posts_link" href="/#thoughts">Thoughts</a>
       </li>
       <li>
         <a id="photos-link" href="/#photos">Photos</a>
