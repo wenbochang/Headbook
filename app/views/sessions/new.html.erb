@@ -26,7 +26,12 @@
 
   <input type="submit" class="btn btn-primary" value="Log in">
 </form>
-
-<%= button_to("Log in as Wenbo", "/session", 
-              :class => "btn btn-warning") %>
+<div class="spacer">
+<%= button_to("Log in as Wenbo", 
+              session_url(:user => { :username => "wenbo", :password => "asd" }), 
+              :class => "btn btn-warning col-xs-1.5") %>
+<%= button_to("Log in as Eric", 
+              session_url(:user => { :username => "eric", :password => "asd" }), 
+              :class => "btn btn-danger col-xs-1.5") %>
+</div>
 
