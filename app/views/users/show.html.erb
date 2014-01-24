@@ -3,6 +3,11 @@
 
   <% @items.each do |item| %>
     <div class="row">
+      <div class="feed-item col-xs-2">
+        <img class="img-rounded"
+          src="http://www.gravatar.com/avatar/<%= item.user.email_md5 %>" />
+      </div>
+
       <div class="col-xs-6">
         <% if item.class == Post %>
           <%= item.body %>
@@ -10,13 +15,7 @@
           <%= render "photo", :photo => item %>
         <% end %>
       </div>
-
-      <div class="feed-item col-xs-2">
-        <img class="img-rounded"
-          src="http://www.gravatar.com/avatar/<%= item.user.email_md5 %>" />
-      </div>
     </div>
   <% end %>
-
 
 </h1>
