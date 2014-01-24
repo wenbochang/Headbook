@@ -7,7 +7,8 @@ FriendsApp.Views.CircleShow = Backbone.View.extend({
   },
 
   initialize: function() {
-    this.memberships = this.model.get("memberships");
+//    this.memberships = this.model.get("memberships");
+    this.memberships = new FriendsApp.Collections.Memberships();
   },
 
   render: function() {
@@ -18,13 +19,21 @@ FriendsApp.Views.CircleShow = Backbone.View.extend({
     this.$el.html(renderedContent);
     this.$el.addClass("col-xs-3");
     this.makeCircleContainer();
-    this.renderMembers();
+
+    this.memberships.fetch({
+      success: function() {
+        view.renderMembers.bind(view)();
+      }
+    });
+
     return this;
   },
 
   renderMembers: function() {
     var view = this;
     this.memberships.each( function(membership) {
+      if (membership.escape("circle_id") != view.model.id) return;
+
       var memberShowView = new FriendsApp.Views.MemberShow({
         model: membership
       });
@@ -69,12 +78,11 @@ FriendsApp.Views.CircleShow = Backbone.View.extend({
     console.log("start circle: " + this.startCircle);
     console.log("end circle: " + this.endCircle);
     if (this.startCircle === "Strangers" && this.endCircle === "Friends"){
-      console.log("what?")
       $.ajax({
         url: "/accept",
         type: "POST",
         data: {
-          new_friend_id: membership.get("user").id
+          new_friend_id: membership.escape("user_id")
         },
       });
     }

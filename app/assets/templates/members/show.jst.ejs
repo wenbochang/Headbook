@@ -1,7 +1,7 @@
 <li class="list-group-item ui-state-default">
   <img class="img-rounded"
-    src="http://www.gravatar.com/avatar/<%= membership.get('user').email_md5 %>" />
+    src="http://www.gravatar.com/avatar/<%= membership.escape('email_md5') %>" />
 
-  <%= membership.get("user").username %>
+  <%= membership.escape("username") %>
 </li> 
 

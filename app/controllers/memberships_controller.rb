@@ -2,10 +2,8 @@ class MembershipsController < ApplicationController
   #new memberships are only created by friend requests
   def index
     render :json => Membership
-      .select("memberships.*, username")
+      .select("memberships.*, username, email_md5")
       .joins(:user)
-      .joins(:circle)
-      .where("circles.user_id" => current_user.id)
   end
 
   def create
@@ -27,12 +25,12 @@ class MembershipsController < ApplicationController
     friend_circle = User.find(params[:new_friend_id]).circles
       .where(:circle_name => "Friends").first
     
-    Membership.find_by_user_id_and_circle_id(
+    m = Membership.find_by_user_id_and_circle_id(
       current_user.id,
       stranger_circle.id
-    ).update_attributes(
-      :circle_id => friend_circle.id
     )
+    
+    m.update_attributes(:circle_id => friend_circle.id) if m
     head :ok
   end
 end
