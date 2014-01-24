@@ -1,22 +1,21 @@
 <h1>
-  <%= "#{@user.username}'s show page" %> 
-
   <h2> Feed </h2>
 
-  <ul>
-    <% @shared_posts.each do |post| %>
-      <li>
-      <%= post.body %>
-      </li>
-    <% end %>
-  </ul>
+  <% @items.each do |item| %>
+    <div class="row">
+      <div class="col-xs-6">
+        <% if item.class == Post %>
+          <%= item.body %>
+        <% elsif item.class == Photo %>
+          <%= render "photo", :photo => item %>
+        <% end %>
+      </div>
 
-  <ul>
-    <% @shared_photos.each do |photo| %>
-      <li>
-      <%= render "photo", :photo => photo %>
-      </li>
-    <% end %>
-  </ul>
+      <div class="feed-item col-xs-2">
+        <img src="http://www.gravatar.com/avatar/<%= item.user.email_md5 %>" />
+      </div>
+    </div>
+  <% end %>
+
 
 </h1>

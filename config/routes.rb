@@ -8,8 +8,8 @@ FriendsApp::Application.routes.draw do
   resources :memberships, :only => [:new, :index, :create, :update, :destroy]
 
   get "add_friends", :to => "add_friends#index"
+  post "add_friends", :to => "add_friends#create"
   post "accept", :to => "memberships#accept"
-  post "friendRequests", :to => "friend_requests#create"
 
   resource :session, :only => [:new, :create, :destroy]
 

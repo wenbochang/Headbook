@@ -18,6 +18,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @shared_posts = @user.shared_posts
     @shared_photos = @user.shared_photos
+    @items = (@shared_posts + @shared_photos).sort_by(&:created_at).reverse
   end
 
   def check_permission

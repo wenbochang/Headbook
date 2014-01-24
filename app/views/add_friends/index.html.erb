@@ -1,19 +1,19 @@
-  <% @non_associates.each do |asc| %>
-    <div class="row spacer col-xs-7">
-      <div class="pull-left">
-        <img src="http://www.gravatar.com/avatar/<%= asc.email_md5 %>" />
-        <%= asc.username %>
-      </div>
-
-      <form action="/friendRequests" method="POST" class="pull-right">
-        <%= hidden_field_tag(
-          request_forgery_protection_token.to_s, form_authenticity_token) %>
-
-        <input type="hidden" name="asc_id" value=<%= asc.id %> >
-    
-        <button type="submit" class="btn btn-info btn-sm">
-          Send Request
-        </button>
-      </form>
+<% @non_associates.each do |asc| %>
+  <div class="row spacer col-xs-7">
+    <div class="pull-left">
+      <img src="http://www.gravatar.com/avatar/<%= asc.email_md5 %>" />
+      <%= asc.username %>
     </div>
-  <% end %>
+
+    <form action="/add_friends" method="POST" class="pull-right">
+      <%= hidden_field_tag(
+        request_forgery_protection_token.to_s, form_authenticity_token) %>
+
+      <input type="hidden" name="asc_id" value=<%= asc.id %> >
+  
+      <button type="submit" class="btn btn-info btn-sm">
+        Send Request
+      </button>
+    </form>
+  </div>
+<% end %>

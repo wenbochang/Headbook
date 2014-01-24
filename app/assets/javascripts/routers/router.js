@@ -48,12 +48,6 @@ FriendsApp.Routers.Router = Backbone.Router.extend({
     });
   },
 
-  addFriendIndex: function() {
-    var router = this;
-    var view = new FriendsApp.Views.AddFriendIndex();
-    router._swapView(view);
-  },
-
   _swapView: function(newView) {
     this.oldView && this.oldView.remove();
     this.oldView = newView;

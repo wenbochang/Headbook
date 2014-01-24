@@ -17,6 +17,9 @@
   <div class="collapse navbar-collapse" id="#main_nav">
     <ul class="nav navbar-nav">
       <li>
+        <img src="http://www.gravatar.com/avatar/<%= current_user.email_md5 %>" />
+      </li>
+      <li>
         <a id="circles-link" href="/#circles"%>Circles</a>
       </li>
       <li>
@@ -28,7 +31,12 @@
       <li>
         <a id="users-link" href="/add_friends">Add Friend</a>
       </li>
-      <li><%= link_to("Logout", "/session", :method => "delete") %></li>
+    </ul>
+    <ul class="navbar-right">
+      <li>
+        <%= button_to("Logout", "/session", 
+                    :method => "delete", :class => "btn btn-lg btn-danger") %>
+      </li>
     </ul>
   </div><!-- /.navbar-collapse -->
 </nav>

@@ -2,8 +2,14 @@ FriendsApp.Views.PhotoForm = Backbone.View.extend({
   template: JST["photos/form"],
 
   events: {
+    "click button#show-photo-modal": "bindDropzone",
     "click #new-photo-btn": "submit",
     "change input[type=file]": "encodeFile"
+  },
+
+  bindDropzone: function() {
+    console.log("blah");
+    this.$("div.dropzone").dropzone({url: "test"});
   },
 
   render: function() {
