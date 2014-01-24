@@ -22,6 +22,16 @@ FriendsApp.Views.CircleShow = Backbone.View.extend({
     return this;
   },
 
+  renderMembers: function() {
+    var view = this;
+    this.memberships.each( function(membership) {
+      var memberShowView = new FriendsApp.Views.MemberShow({
+        model: membership
+      });
+      view.circleContainer.append(memberShowView.render().$el);
+    })
+  },
+
   makeCircleContainer: function() {
     this.circleContainer = this.$(".circle-members");
     this.circleContainer.attr("data-circle-id", this.model.id);
@@ -33,22 +43,12 @@ FriendsApp.Views.CircleShow = Backbone.View.extend({
     }).disableSelection();
   },
 
-  renderMembers: function() {
-    var view = this;
-    this.memberships.each( function(membership) {
-      var memberShowView = new FriendsApp.Views.MemberShow({
-        model: membership
-      });
-      view.circleContainer.append(memberShowView.render().$el);
-    })
-  },
-
   startDrag: function(event, ui) {
-    this.startCircle = ui.item.parents(".panel-info").data("circle-name");
+    this.startCircle = ui.item.parents(".circle-panel").data("circle-name");
   },
 
   stopDrag: function(event, ui) {
-    this.endCircle = ui.item.parents(".panel-info").data("circle-name");
+    this.endCircle = ui.item.parents(".circle-panel").data("circle-name");
 
     var membershipID = ui.item.data("membership-id");
     var newCircleID = ui.item.parents().data("circle-id");
@@ -69,6 +69,7 @@ FriendsApp.Views.CircleShow = Backbone.View.extend({
     console.log("start circle: " + this.startCircle);
     console.log("end circle: " + this.endCircle);
     if (this.startCircle === "Strangers" && this.endCircle === "Friends"){
+      console.log("what?")
       $.ajax({
         url: "/accept",
         type: "POST",
