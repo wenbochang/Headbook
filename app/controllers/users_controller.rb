@@ -22,7 +22,10 @@ class UsersController < ApplicationController
   end
 
   def check_permission
-    redirect_to new_session_url unless current_user
+    if current_user.username != params[:id]
+      session[:session_token] = nil
+      redirect_to new_session_url 
+    end
   end
 
 end

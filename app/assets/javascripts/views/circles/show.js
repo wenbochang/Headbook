@@ -16,12 +16,6 @@ FriendsApp.Views.CircleShow = Backbone.View.extend({
     this.makeCircleContainer();
     this.renderMembers();
 
-//    FriendsApp.memberships.fetch({
-//      success: function() {
-//        view.renderMembers.bind(view)();
-//      }
-//    });
-
     return this;
   },
 
@@ -44,7 +38,7 @@ FriendsApp.Views.CircleShow = Backbone.View.extend({
       connectWith: ".circle-members",
       dropOnEmpty: true,
       start: this.startDrag.bind(this),
-      stop: this.stopDrag.bind(this)
+      stop: this.stopDrag.bind(this),
     }).disableSelection();
   },
 

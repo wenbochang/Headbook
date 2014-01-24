@@ -11,8 +11,4 @@ class Circle < ActiveRecord::Base
 
   has_many :members, :through => :memberships, :source => :user
 
-#  def set_default_display_removable
-#    self.display ||= true
-#    self.removable ||= true
-#  end
 end

@@ -2,14 +2,13 @@ TODO
 
 Questions
 [] dropzonejs form not working
-[] how to avoid extra base div from views this.$el
 [] how to set default circle attributes
 
 DB constraints
-[] unique usernames
+[x] unique usernames
 
 Backend
-[] friendly ID - slugs (1. extend model, 2. friendlyId :username, :user => :slugged)
+[x] friendly ID - slugs (1. extend model, 2. friendlyId :username, :user => :slugged)
 [] comments?
 [] photo tagging?
 
@@ -19,9 +18,9 @@ Front-end
 [x] display feed
 [x] drag member from a circle to next
 [x] load associates once instead of members for each circle
-[] logged in as correct user to see show page
+[x] logged in as correct user to see show page
 [] navbar lists, add a listener to highlight based on page?
-[] order all posted items by time
+[x] order all posted items by time
 [] make landing page
 
 Backbone
