@@ -6,11 +6,6 @@ FriendsApp.Views.CircleShow = Backbone.View.extend({
     "click .circle-minimize": "minimize",
   },
 
-  initialize: function() {
-//    this.memberships = this.model.get("memberships");
-    this.memberships = new FriendsApp.Collections.Memberships();
-  },
-
   render: function() {
     var view = this;
     var renderedContent = this.template({
@@ -19,19 +14,20 @@ FriendsApp.Views.CircleShow = Backbone.View.extend({
     this.$el.html(renderedContent);
     this.$el.addClass("col-xs-3");
     this.makeCircleContainer();
+    this.renderMembers();
 
-    this.memberships.fetch({
-      success: function() {
-        view.renderMembers.bind(view)();
-      }
-    });
+//    FriendsApp.memberships.fetch({
+//      success: function() {
+//        view.renderMembers.bind(view)();
+//      }
+//    });
 
     return this;
   },
 
   renderMembers: function() {
     var view = this;
-    this.memberships.each( function(membership) {
+    FriendsApp.memberships.each( function(membership) {
       if (membership.escape("circle_id") != view.model.id) return;
 
       var memberShowView = new FriendsApp.Views.MemberShow({
@@ -63,7 +59,7 @@ FriendsApp.Views.CircleShow = Backbone.View.extend({
     var newCircleID = ui.item.parents().data("circle-id");
     var newIndex = ui.item.index();
     var newMembershipOrder = this.getNewOrder(ui);
-    var membership = this.memberships.get(membershipID);
+    var membership = FriendsApp.memberships.get(membershipID);
 
     if (membership && newCircleID) {
       membership.save({

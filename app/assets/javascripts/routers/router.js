@@ -15,6 +15,7 @@ FriendsApp.Routers.Router = Backbone.Router.extend({
     FriendsApp.posts = new FriendsApp.Collections.Posts();
     FriendsApp.photos = new FriendsApp.Collections.Photos();
     FriendsApp.circles = new FriendsApp.Collections.Circles();
+    FriendsApp.memberships = new FriendsApp.Collections.Memberships();
 
     //this fetch must be done so posts/photos have circles
     if (FriendsApp.user_id) {

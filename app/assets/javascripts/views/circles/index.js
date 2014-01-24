@@ -19,10 +19,14 @@ FriendsApp.Views.CirclesIndex = Backbone.View.extend({
     var view = this;
     this.circles.fetch({
       success: function() {
-        view.$el.html(view.template());
-        view.renderCircleForm();
-        view.renderCircleDropdown();
-        view.renderCircles();
+        FriendsApp.memberships.fetch({
+          success: function() {
+            view.$el.html(view.template());
+            view.renderCircleForm();
+            view.renderCircleDropdown();
+            view.renderCircles();
+          }
+        });
       }
     });
     return this;

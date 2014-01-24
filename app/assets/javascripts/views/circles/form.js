@@ -10,7 +10,8 @@ FriendsApp.Views.CircleForm = Backbone.View.extend({
   render: function() {
     var renderedContent = this.template();
     this.$el.html(renderedContent);
-    this.$el.attr("class", "col-xs-4");
+    this.$el.attr("class", "form-inline col-xs-5");
+    this.$el.attr("role", "form");
     return this;
   },
 

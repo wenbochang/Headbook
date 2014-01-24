@@ -9,16 +9,16 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href= <%="/users/#{current_user.username}/"%>>
-      Friends App</a>
   </div>
 
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse" id="#main_nav">
     <ul class="nav navbar-nav">
       <li>
-        <img class="img-rounded" 
-          src="http://www.gravatar.com/avatar/<%= current_user.email_md5 %>" />
+        <a class="navbar-brand" href= <%="/users/#{current_user.username}/"%>>
+            <img class="img-rounded" 
+              src="http://www.gravatar.com/avatar/<%= current_user.email_md5 %>" />
+        </a>
       </li>
       <li>
         <a id="circles-link" href="/#circles"%>Circles</a>
@@ -33,11 +33,10 @@
         <a id="users-link" href="/add_friends">Add Friend</a>
       </li>
     </ul>
-    <ul class="navbar-right">
-      <li>
+    <ul>
         <%= button_to("Logout", "/session", 
-                    :method => "delete", :class => "btn btn-lg btn-danger") %>
-      </li>
+                      :method => "delete", 
+                      :class => "btn btn-sm btn-danger navbar-right") %>
     </ul>
   </div><!-- /.navbar-collapse -->
 </nav>
