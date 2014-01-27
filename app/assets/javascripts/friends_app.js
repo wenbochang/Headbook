@@ -5,10 +5,17 @@ window.FriendsApp = {
   Routers: {},
 
   initialize: function() {
-    new FriendsApp.Routers.Router({
-      $rootEl: $("#content")
-    });
-    Backbone.history.start();
+    if (FriendsApp.user_id) {
+      FriendsApp.circles = new FriendsApp.Collections.Circles();
+      FriendsApp.circles.fetch({
+        success: function() {
+          new FriendsApp.Routers.Router({
+            $rootEl: $("#content")
+          });
+          Backbone.history.start();
+        }
+      });
+    }
   }
 
 };

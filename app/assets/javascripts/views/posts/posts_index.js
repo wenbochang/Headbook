@@ -8,19 +8,15 @@ FriendsApp.Views.PostsIndex = Backbone.View.extend({
   },
 
   initialize: function(options) {
-    this.posts= options.posts;
-
     var view = this;
     var events = ["add", "remove"];
     _(events).each(function (event) {
-      view.listenTo(view.posts, event, view.render);
+      view.listenTo(FriendsApp.posts, event, view.render);
     });
   },
 
   render: function() {
-    FriendsApp.circles.fetch({
-      success: this.renderForm()
-    });
+    this.renderForm();
     FriendsApp.posts.fetch({
       success: this.renderPosts()
     });
@@ -36,7 +32,7 @@ FriendsApp.Views.PostsIndex = Backbone.View.extend({
 
   renderPosts: function() {
     var view = this;
-    this.posts.each( function(post) {
+    FriendsApp.posts.each( function(post) {
       var renderedPost = view.postTemplate({
         post: post
       });
@@ -49,7 +45,7 @@ FriendsApp.Views.PostsIndex = Backbone.View.extend({
     event.preventDefault();
     var attrs = $(event.currentTarget.form).serializeJSON();
     attrs.user_id = FriendsApp.user_id;
-    this.posts.create(attrs);
+    FriendsApp.posts.create(attrs);
   }
 
 })
