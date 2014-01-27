@@ -6,9 +6,8 @@ class PhotosController < ApplicationController
 
   def create
     @photo = Photo.new(params[:photo])
-#    @photo.url = @photo.file.url[0..-1] if @photo.file.url
     if @photo.save
-      @photo.update_attributes(:url => @photo.file.url)
+      @photo.update_attributes(:url => @photo.file.url) if @photo.file_file_size
       head :ok
     else
       render :json => @photo.errors

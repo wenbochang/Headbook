@@ -8,8 +8,7 @@ FriendsApp.Views.PhotoForm = Backbone.View.extend({
   },
 
   bindDropzone: function() {
-    console.log("blah");
-    this.$("div.dropzone").dropzone({url: "test"});
+    //this.$("div.dropzone").dropzone({url: "test"});
   },
 
   render: function() {
