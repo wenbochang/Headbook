@@ -2,7 +2,7 @@
   <div class="row spacer col-xs-7">
     <div class="pull-left">
       <img src="http://www.gravatar.com/avatar/<%= asc.email_md5 %>" />
-      <%= asc.username %>
+      <%= asc.username.capitalize %>
     </div>
 
     <form action="/add_friends" method="POST" class="pull-right">

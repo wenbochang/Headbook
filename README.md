@@ -1,39 +1,17 @@
-TODO
-
-Questions
-[] dropzonejs form not working
-[] how to set default circle attributes
-
-DB constraints
-[x] unique usernames
-
-Backend
-[x] friendly ID - slugs (1. extend model, 2. friendlyId :username, :user => :slugged)
-[] comments?
-[] photo tagging?
-
-Front-end 
-[x] change post form to allow for dropdown to select circle
-[x] add/delete circles
-[x] display feed
-[x] drag member from a circle to next
-[x] load associates once instead of members for each circle
-[x] logged in as correct user to see show page
-[] navbar lists, add a listener to highlight based on page?
-[x] order all posted items by time
-[] make landing page
-
-Backbone
-[x] backbone for posts
-[x] backbone for photos
-[x] backbone for circles
-[x] backbone for members
-[] backbone for session?
-
-Refactor
-[x] include memberships in circles index
-[x] use form's JSON instead of selecting from elements
-
-Bonus
-[] photo tagging
-[] errors
+This is a Facebook clone written with a Ruby on Rails backend and a 
+Backbone frontend.
+  
+A user may have associates that he/she places in different circles. Posts and
+pictures may be shared with any or all circles.
+  
+There is a Backbone collection for all circles, posts and photos. This
+mirrors the Rails models which allows for associations between them. Thus
+a user has many circles, and belong to circles through memberships. This allows 
+memberships to connect users to one another.
+  
+jQueryUI is utilized to allow the drag-and-drop of a user's associates from
+one circle to the next. Ajax queries are automatically called to update their
+memberships.
+  
+Photo uploading is done with Paperclip, which stores the files on an AWS E3
+server for future use.

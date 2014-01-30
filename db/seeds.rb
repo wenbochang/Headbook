@@ -10,9 +10,8 @@ User.create!(:username => "sol", :email => "solomon.garger@gmail.com", :password
 Membership.create!(:circle_id => 1, :user_id => 2, :list_index => 0)
 Membership.create!(:circle_id => 4, :user_id => 1, :list_index => 0)
 
-#posts
-#Post.create!(:body => "post by wenbo, shared with friends", 
-#             :circle_id => 1, :user_id => 1)
+Post.create!(:body => "Hi Wenbo!", 
+             :circle_id => 1, :user_id => 1)
 
 #Photos
 Photo.create!(:title => "I love cats!", 

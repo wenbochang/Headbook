@@ -9,4 +9,6 @@ class Photo < ActiveRecord::Base
     :small => "50x50#"
   }
 
+  validates_attachment_size :file, :in => 0.megabytes..1.megabytes
+
 end

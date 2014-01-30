@@ -8,19 +8,35 @@
      type="hidden"
      value="<%= form_authenticity_token %>">
 
-  <label for="user_username">Username</label>
-  <input
-     id="user_username"
-     name="user[username]"
-     type="text">
-  <br>
+  <div class="user-form form-group">
+    <label for="user_email">Email</label>
+    <input
+       class="form-control"
+       id="user_email"
+       name="user[email]"
+       type="text">
+    <br>
+  </div>
 
-  <label for="user_password">Password</label>
-  <input
-     id="user_password"
-     name="user[password]"
-     type="password">
-  <br>
+  <div class="user-form form-group">
+    <label for="user_username">Username</label>
+    <input
+       class="form-control"
+       id="user_username"
+       name="user[username]"
+       type="text">
+    <br>
+  </div>
 
-  <input type="submit" value="<%= "Create User" %>">
+  <div class="user-form form-group">
+    <label for="user_password">Password</label>
+    <input
+       class="form-control"
+       id="user_password"
+       name="user[password]"
+       type="password">
+    <br>
+  </div>
+
+  <input type="submit" class="btn btn-primary" value="Create Account">
 </form>

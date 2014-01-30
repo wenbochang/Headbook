@@ -2,10 +2,15 @@
   <h2> Feed </h2>
 
   <% @items.each do |item| %>
-    <div class="row">
+    <div class="row spacer">
       <div class="feed-item col-xs-2">
-        <img class="img-rounded"
-          src="http://www.gravatar.com/avatar/<%= item.user.email_md5 %>" />
+
+        <div class="thumbnail with-caption"> 
+          <img class="img-rounded" 
+            src="http://www.gravatar.com/avatar/<%= item.user.email_md5 %>" />
+          <%= item.user.username.capitalize %>
+        </div>
+
       </div>
 
       <div class="col-xs-6">

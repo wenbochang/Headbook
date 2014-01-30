@@ -25,7 +25,7 @@ FriendsApp.Routers.Router = Backbone.Router.extend({
 
   postsIndex: function(){
     var router = this;
-    FriendsApp.posts.fetch({
+    FriendsApp.circles.fetch({
       success: function() {
         var view = new FriendsApp.Views.PostsIndex()
         router._swapView(view)

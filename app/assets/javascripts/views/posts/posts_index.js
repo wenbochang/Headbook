@@ -16,9 +16,12 @@ FriendsApp.Views.PostsIndex = Backbone.View.extend({
   },
 
   render: function() {
-    this.renderForm();
+    var view = this;
     FriendsApp.posts.fetch({
-      success: this.renderPosts()
+      success: function() {
+        view.renderForm();
+        view.renderPosts();
+      }
     });
     return this;
   },
